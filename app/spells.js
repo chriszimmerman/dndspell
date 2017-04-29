@@ -62,3 +62,4 @@ spellApp.controller('SpellController', function($scope, $http){
     $scope.favoriteSpells = [];
   };
 });
+
