@@ -3,7 +3,7 @@ import data from '../data/spells.json';
 
 class App extends React.Component {
   state = {
-    selectedSpellIndex: 0
+    selectedSpellIndex: 2
   }
 
   constructor(props) {
