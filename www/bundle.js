@@ -20408,25 +20408,35 @@ var App = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
     _this.state = {
-      selectedSpellIndex: 2
+      selectedSpellIndex: 0
     };
+
+    _this.onSpellChanged = function (event) {
+      _this.setState({
+        selectedSpellIndex: event.target.value
+      });
+    };
+
     return _this;
   }
 
   _createClass(App, [{
     key: 'render',
     value: function render() {
+      var selectedSpell = _spells2.default[this.state.selectedSpellIndex];
+
       return _react2.default.createElement(
         'div',
         null,
         _react2.default.createElement(
           'h1',
           null,
-          'Dungions & Dragons 5th Edition Spell List'
+          'D&D 5th Ed. Spells'
         ),
+        _react2.default.createElement('p', null),
         _react2.default.createElement(
           'select',
-          null,
+          { onChange: this.onSpellChanged },
           _spells2.default.map(function (element, index) {
             return _react2.default.createElement(
               'option',
@@ -20435,7 +20445,81 @@ var App = function (_React$Component) {
             );
           })
         ),
-        _spells2.default[this.state.selectedSpellIndex].desc
+        _react2.default.createElement(
+          'h2',
+          null,
+          selectedSpell.name
+        ),
+        _react2.default.createElement(
+          'h3',
+          null,
+          selectedSpell.level,
+          ' spell'
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'Components: ',
+          selectedSpell.components
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'Material: ',
+          selectedSpell.material
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'Ritual: ',
+          selectedSpell.ritual
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'Concentration: ',
+          selectedSpell.concentration
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'Range: ',
+          selectedSpell.range
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'Casting Time: ',
+          selectedSpell.casting_time
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'Duration: ',
+          selectedSpell.duration
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'School: ',
+          selectedSpell.school
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'Classes: ',
+          selectedSpell.class
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          selectedSpell.desc
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          selectedSpell.higher_level
+        )
       );
     }
   }]);
