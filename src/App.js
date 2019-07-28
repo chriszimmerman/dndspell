@@ -1,9 +1,11 @@
 import React from 'react';
+import SpellCard from './SpellCard';
 import data from '../data/spells.json';
 
 class App extends React.Component {
   state = {
-    selectedSpellIndex: 0
+    selectedSpellIndex: 0,
+    favorites: JSON.parse(window.localStorage.getItem('spells') || "[]")
   }
 
   onSpellChanged = (event) => {
@@ -12,12 +14,25 @@ class App extends React.Component {
     });
   };
 
+  addToFavorites = (spell) => {
+    var newFavorites = this.state.favorites.concat(spell);
+    this.setState({
+      favorites: newFavorites
+    }, () => {
+      window.localStorage.setItem('spells', JSON.stringify(newFavorites));
+    });
+  }
+
   constructor(props) {
     super(props);
   }
 
   render() {
       const selectedSpell = data[this.state.selectedSpellIndex];
+      const favorites = this.state.favorites;
+      const selectedSpellIsInFavorites = favorites.some((favorite) => {
+        return favorite.name === selectedSpell.name;
+      });
 
       return (
         <div>
@@ -30,19 +45,20 @@ class App extends React.Component {
                 })
               }
             </select>
-            <h2>{selectedSpell.name}</h2>
-            <h3>{selectedSpell.level} spell</h3>
-            <p>Components: {selectedSpell.components}</p>
-            <p>Material: {selectedSpell.material}</p>
-            <p>Ritual: {selectedSpell.ritual}</p>
-            <p>Concentration: {selectedSpell.concentration}</p>
-            <p>Range: {selectedSpell.range}</p>
-            <p>Casting Time: {selectedSpell.casting_time}</p>
-            <p>Duration: {selectedSpell.duration}</p>
-            <p>School: {selectedSpell.school}</p>
-            <p>Classes: {selectedSpell.class}</p>
-            <p>{selectedSpell.desc}</p>
-            <p>{selectedSpell.higher_level}</p>
+            {
+              selectedSpellIsInFavorites
+                ? null 
+                : <p><button onClick={() => this.addToFavorites(selectedSpell)}>Add to Favorites</button></p>
+
+            }
+            <SpellCard spell={selectedSpell}/>
+
+            <h1>Favorites</h1>
+            {
+              favorites.map((spell) => {
+                return (<SpellCard spell={spell}/>);
+              }) 
+            }
         </div>
       );
   }
