@@ -1,18 +1,13 @@
 import React from 'react';
-import SpellCard from './SpellCard';
-import data from '../data/spells.json';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import Home from './Home';
+import Favorites from './Favorites';
 
 class App extends React.Component {
   state = {
     selectedSpellIndex: 0,
     favorites: JSON.parse(window.localStorage.getItem('spells') || "[]")
   }
-
-  onSpellChanged = (event) => {
-    this.setState({
-      selectedSpellIndex: event.target.value 
-    });
-  };
 
   addToFavorites = (spell) => {
     var newFavorites = this.state.favorites.concat(spell);
@@ -28,39 +23,19 @@ class App extends React.Component {
   }
 
   render() {
-      const selectedSpell = data[this.state.selectedSpellIndex];
-      const favorites = this.state.favorites;
-      const selectedSpellIsInFavorites = favorites.some((favorite) => {
-        return favorite.name === selectedSpell.name;
-      });
-
-      return (
+    return (
+      <Router>
         <div>
-            <h1>D&D 5th Ed. Spells</h1>
-            <p></p>
-            <select onChange={this.onSpellChanged}>
-              {
-                data.map((element, index) => {
-                  return (<option value={index}>{element.name}</option>);
-                })
-              }
-            </select>
-            {
-              selectedSpellIsInFavorites
-                ? null 
-                : <p><button onClick={() => this.addToFavorites(selectedSpell)}>Add to Favorites</button></p>
+          <nav>
+            <Link to="/">Home</Link>
+            <Link to="/favorites/">Favorites</Link>
+          </nav>
 
-            }
-            <SpellCard spell={selectedSpell}/>
-
-            <h1>Favorites</h1>
-            {
-              favorites.map((spell) => {
-                return (<SpellCard spell={spell}/>);
-              }) 
-            }
+          <Route path="/" exact component={() => <Home favorites={this.state.favorites} addToFavorites={this.addToFavorites} />} />
+          <Route path="/favorites/" component={() => <Favorites favorites={this.state.favorites }/> } />
         </div>
-      );
+      </Router>
+    );
   }
 }
 
