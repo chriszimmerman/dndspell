@@ -2,20 +2,26 @@ import React from 'react';
 import SpellCard from './SpellCard';
 
 class Favorites extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
       const favorites = this.props.favorites;
 
       return (
         <div>
             <h1>Favorites</h1>
+
             {
-              favorites.map((spell) => {
-                return (<SpellCard spell={spell}/>);
-              }) 
+                favorites.length > 0
+                ? 
+                favorites.map((spell) => {
+                    return (
+                        <div>
+                            <p><button onClick={() => this.props.removeFromFavorites(spell)}>Remove From Favorites</button></p>
+                            <SpellCard spell={spell}/>
+                        </div>
+                    );
+                }) 
+                :
+                (<p>You have no favorites</p>)
             }
         </div>
       );

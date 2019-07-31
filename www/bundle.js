@@ -20408,26 +20408,44 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
 
-  function App(props) {
+  function App() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
     _classCallCheck(this, App);
 
-    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
 
-    _this.state = {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = App.__proto__ || Object.getPrototypeOf(App)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
       selectedSpellIndex: 0,
       favorites: JSON.parse(window.localStorage.getItem('spells') || "[]")
-    };
-
-    _this.addToFavorites = function (spell) {
+    }, _this.addToFavorites = function (spell, selectedSpellIndex) {
       var newFavorites = _this.state.favorites.concat(spell);
       _this.setState({
-        favorites: newFavorites
+        favorites: newFavorites,
+        selectedSpellIndex: selectedSpellIndex
       }, function () {
         window.localStorage.setItem('spells', JSON.stringify(newFavorites));
       });
-    };
-
-    return _this;
+    }, _this.removeFromFavorites = function (spellToRemove) {
+      var favorites = _this.state.favorites;
+      var indexOfSpellToRemove = favorites.findIndex(function (spell) {
+        return spell.name === spellToRemove.name;
+      });
+      favorites.splice(indexOfSpellToRemove, 1);
+      _this.setState({
+        favorites: favorites
+      }, function () {
+        window.localStorage.setItem('spells', JSON.stringify(favorites));
+      });
+    }, _this.onSpellChanged = function (event) {
+      _this.setState({
+        selectedSpellIndex: event.target.value
+      });
+    }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(App, [{
@@ -20455,12 +20473,26 @@ var App = function (_React$Component) {
               'Favorites'
             )
           ),
-          _react2.default.createElement(_reactRouterDom.Route, { path: '/', exact: true, component: function component() {
-              return _react2.default.createElement(_Home2.default, { favorites: _this2.state.favorites, addToFavorites: _this2.addToFavorites });
-            } }),
-          _react2.default.createElement(_reactRouterDom.Route, { path: '/favorites/', component: function component() {
-              return _react2.default.createElement(_Favorites2.default, { favorites: _this2.state.favorites });
-            } })
+          _react2.default.createElement(_reactRouterDom.Route, { path: '/',
+            exact: true,
+            component: function component() {
+              return _react2.default.createElement(_Home2.default, {
+                favorites: _this2.state.favorites,
+                addToFavorites: _this2.addToFavorites,
+                selectedSpellIndex: _this2.state.selectedSpellIndex,
+                onSpellChanged: _this2.onSpellChanged
+              });
+            }
+          }),
+          _react2.default.createElement(_reactRouterDom.Route, {
+            path: '/favorites/',
+            component: function component() {
+              return _react2.default.createElement(_Favorites2.default, {
+                favorites: _this2.state.favorites,
+                removeFromFavorites: _this2.removeFromFavorites
+              });
+            }
+          })
         )
       );
     }
@@ -24172,22 +24204,20 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Home = function (_React$Component) {
   _inherits(Home, _React$Component);
 
-  function Home(props) {
+  function Home() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
     _classCallCheck(this, Home);
 
-    var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
 
-    _this.state = {
-      selectedSpellIndex: 0
-    };
-
-    _this.onSpellChanged = function (event) {
-      _this.setState({
-        selectedSpellIndex: event.target.value
-      });
-    };
-
-    return _this;
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Home.__proto__ || Object.getPrototypeOf(Home)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      selectedSpellIndex: _this.props.selectedSpellIndex
+    }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(Home, [{
@@ -24212,7 +24242,7 @@ var Home = function (_React$Component) {
         _react2.default.createElement('p', null),
         _react2.default.createElement(
           'select',
-          { onChange: this.onSpellChanged },
+          { onChange: this.props.onSpellChanged, value: this.state.selectedSpellIndex },
           _spells2.default.map(function (element, index) {
             return _react2.default.createElement(
               'option',
@@ -24227,7 +24257,7 @@ var Home = function (_React$Component) {
           _react2.default.createElement(
             'button',
             { onClick: function onClick() {
-                return _this2.props.addToFavorites(selectedSpell);
+                return _this2.props.addToFavorites(selectedSpell, _this2.state.selectedSpellIndex);
               } },
             'Add to Favorites'
           )
@@ -24250,7 +24280,7 @@ exports.default = Home;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -24272,35 +24302,56 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Favorites = function (_React$Component) {
-  _inherits(Favorites, _React$Component);
+    _inherits(Favorites, _React$Component);
 
-  function Favorites(props) {
-    _classCallCheck(this, Favorites);
+    function Favorites() {
+        _classCallCheck(this, Favorites);
 
-    return _possibleConstructorReturn(this, (Favorites.__proto__ || Object.getPrototypeOf(Favorites)).call(this, props));
-  }
-
-  _createClass(Favorites, [{
-    key: 'render',
-    value: function render() {
-      var favorites = this.props.favorites;
-
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          'h1',
-          null,
-          'Favorites'
-        ),
-        favorites.map(function (spell) {
-          return _react2.default.createElement(_SpellCard2.default, { spell: spell });
-        })
-      );
+        return _possibleConstructorReturn(this, (Favorites.__proto__ || Object.getPrototypeOf(Favorites)).apply(this, arguments));
     }
-  }]);
 
-  return Favorites;
+    _createClass(Favorites, [{
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            var favorites = this.props.favorites;
+
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    'h1',
+                    null,
+                    'Favorites'
+                ),
+                favorites.length > 0 ? favorites.map(function (spell) {
+                    return _react2.default.createElement(
+                        'div',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            _react2.default.createElement(
+                                'button',
+                                { onClick: function onClick() {
+                                        return _this2.props.removeFromFavorites(spell);
+                                    } },
+                                'Remove From Favorites'
+                            )
+                        ),
+                        _react2.default.createElement(_SpellCard2.default, { spell: spell })
+                    );
+                }) : _react2.default.createElement(
+                    'p',
+                    null,
+                    'You have no favorites'
+                )
+            );
+        }
+    }]);
+
+    return Favorites;
 }(_react2.default.Component);
 
 exports.default = Favorites;

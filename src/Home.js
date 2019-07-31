@@ -4,17 +4,7 @@ import data from '../data/spells.json';
 
 class Home extends React.Component {
   state = {
-    selectedSpellIndex: 0
-  }
-
-  onSpellChanged = (event) => {
-    this.setState({
-      selectedSpellIndex: event.target.value 
-    });
-  };
-
-  constructor(props) {
-    super(props);
+    selectedSpellIndex: this.props.selectedSpellIndex
   }
 
   render() {
@@ -28,17 +18,17 @@ class Home extends React.Component {
         <div>
             <h1>D&D 5th Ed. Spells</h1>
             <p></p>
-            <select onChange={this.onSpellChanged}>
+            <select onChange={this.props.onSpellChanged} value={this.state.selectedSpellIndex}>
               {
                 data.map((element, index) => {
-                  return (<option value={index}>{element.name}</option>);
+                    return <option value={index}>{element.name}</option>;
                 })
               }
             </select>
             {
               selectedSpellIsInFavorites
-                ? null 
-                : <p><button onClick={() => this.props.addToFavorites(selectedSpell)}>Add to Favorites</button></p>
+                ? null
+                : <p><button onClick={() => this.props.addToFavorites(selectedSpell, this.state.selectedSpellIndex)}>Add to Favorites</button></p>
 
             }
             <SpellCard spell={selectedSpell}/>
