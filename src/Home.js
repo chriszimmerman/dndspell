@@ -1,5 +1,6 @@
 import React from 'react';
 import SpellCard from './SpellCard';
+import Select from 'react-select';
 import data from '../data/spells.json';
 
 class Home extends React.Component {
@@ -13,19 +14,22 @@ class Home extends React.Component {
       const selectedSpellIsInFavorites = favorites.some((favorite) => {
         return favorite.name === selectedSpell.name;
       });
+      const options = data.map((spell, index) => {
+        return { value: index, label: spell.name };
+      });
       const button = selectedSpellIsInFavorites
-        ? <button className="btn btn-warning" onClick={() => this.props.removeFromFavorites(spell)}>Unfavorite</button>
+        ? <button className="btn btn-warning" onClick={() => this.props.removeFromFavorites(selectedSpell)}>Unfavorite</button>
         : <button className="btn btn-success" onClick={() => this.props.addToFavorites(selectedSpell, this.state.selectedSpellIndex)}>Favorite</button>;
 
       return (
-        <div class="container">
-          <select onChange={this.props.onSpellChanged} value={this.state.selectedSpellIndex}>
-            {
-              data.map((element, index) => {
-                  return <option value={index}>{element.name}</option>;
-              })
-            }
-          </select>
+        <div className="container">
+          <Select 
+            value={this.state.selectedSpellIndex}
+            onChange={this.props.onSpellChanged}
+            options={options}
+            isSearchable={true}
+            placeholder="Search for a spell (e.g. Magic Missile)"
+          />
           <SpellCard spell={selectedSpell} button={button}/>
         </div>
       );

@@ -35,9 +35,10 @@ class App extends React.Component {
     });
   }
 
-  onSpellChanged = (event) => {
+  onSpellChanged = (spell) => {
+    console.log(spell);
     this.setState({
-      selectedSpellIndex: event.target.value 
+      selectedSpellIndex: spell.value 
     });
   };
 
