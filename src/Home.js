@@ -13,25 +13,20 @@ class Home extends React.Component {
       const selectedSpellIsInFavorites = favorites.some((favorite) => {
         return favorite.name === selectedSpell.name;
       });
+      const button = selectedSpellIsInFavorites
+        ? <button className="btn btn-warning" onClick={() => this.props.removeFromFavorites(spell)}>Unfavorite</button>
+        : <button className="btn btn-success" onClick={() => this.props.addToFavorites(selectedSpell, this.state.selectedSpellIndex)}>Favorite</button>;
 
       return (
-        <div>
-            <h1>D&D 5th Ed. Spells</h1>
-            <p></p>
-            <select onChange={this.props.onSpellChanged} value={this.state.selectedSpellIndex}>
-              {
-                data.map((element, index) => {
-                    return <option value={index}>{element.name}</option>;
-                })
-              }
-            </select>
+        <div class="container">
+          <select onChange={this.props.onSpellChanged} value={this.state.selectedSpellIndex}>
             {
-              selectedSpellIsInFavorites
-                ? null
-                : <p><button onClick={() => this.props.addToFavorites(selectedSpell, this.state.selectedSpellIndex)}>Add to Favorites</button></p>
-
+              data.map((element, index) => {
+                  return <option value={index}>{element.name}</option>;
+              })
             }
-            <SpellCard spell={selectedSpell}/>
+          </select>
+          <SpellCard spell={selectedSpell} button={button}/>
         </div>
       );
   }

@@ -9,7 +9,10 @@ class SpellCard extends React.Component {
         const spell = this.props.spell;
 
         return (
-        <div>
+        <div className="container jumbotron" data-toggle="collapse">
+            {
+                this.props.button
+            }
             <h2>{spell.name}</h2>
             <h3>{spell.level} spell</h3>
             <p>Components: {spell.components}</p>

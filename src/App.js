@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import Home from './Home';
 import Favorites from './Favorites';
 
@@ -11,6 +11,9 @@ class App extends React.Component {
 
   addToFavorites = (spell, selectedSpellIndex) => {
     const newFavorites = this.state.favorites.concat(spell);
+    newFavorites.sort((a, b) => {
+      return a.name.localeCompare(b.name);
+    });
     this.setState({
       favorites: newFavorites,
       selectedSpellIndex
@@ -42,9 +45,11 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/favorites/">Favorites</Link>
+          <nav className="navbar navbar-dark bg-dark">
+            <div className="container">
+              <NavLink className="nav-brand" to="/">Home</NavLink>
+              <NavLink className="nav-brand" to="/favorites/">Favorites</NavLink>
+            </div>
           </nav>
 
           <Route path="/"
@@ -53,6 +58,7 @@ class App extends React.Component {
               () => <Home 
                       favorites={this.state.favorites}
                       addToFavorites={this.addToFavorites}
+                      removeFromFavorites={this.removeFromFavorites} 
                       selectedSpellIndex={this.state.selectedSpellIndex}
                       onSpellChanged={this.onSpellChanged}
                     />

@@ -6,17 +6,16 @@ class Favorites extends React.Component {
       const favorites = this.props.favorites;
 
       return (
-        <div>
+        <div className="container">
             <h1>Favorites</h1>
-
             {
                 favorites.length > 0
                 ? 
                 favorites.map((spell) => {
+                    const button = <button className="btn btn-warning" onClick={() => this.props.removeFromFavorites(spell)}>Unfavorite</button>;
                     return (
                         <div>
-                            <p><button onClick={() => this.props.removeFromFavorites(spell)}>Remove From Favorites</button></p>
-                            <SpellCard spell={spell}/>
+                            <SpellCard spell={spell} button={button}/>
                         </div>
                     );
                 }) 
