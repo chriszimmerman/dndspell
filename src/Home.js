@@ -28,7 +28,7 @@ class Home extends React.Component {
             onChange={this.props.onSpellChanged}
             options={options}
             isSearchable={true}
-            placeholder="Search for a spell (e.g. Magic Missile)"
+            placeholder="Type a spell here"
           />
           <SpellCard spell={selectedSpell} button={button}/>
         </div>

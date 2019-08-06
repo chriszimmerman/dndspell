@@ -1,5 +1,5 @@
 import React from 'react';
-import SpellCard from './SpellCard';
+import CollapsableSpellCard from './CollapsableSpellCard';
 
 class Favorites extends React.Component {
   render() {
@@ -15,7 +15,7 @@ class Favorites extends React.Component {
                     const button = <button className="btn btn-warning" onClick={() => this.props.removeFromFavorites(spell)}>Unfavorite</button>;
                     return (
                         <div>
-                            <SpellCard spell={spell} button={button}/>
+                            <CollapsableSpellCard spell={spell} button={button}/>
                         </div>
                     );
                 }) 

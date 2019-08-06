@@ -24263,7 +24263,7 @@ var Home = function (_React$Component) {
           onChange: this.props.onSpellChanged,
           options: options,
           isSearchable: true,
-          placeholder: 'Search for a spell (e.g. Magic Missile)'
+          placeholder: 'Type a spell here'
         }),
         _react2.default.createElement(_SpellCard2.default, { spell: selectedSpell, button: button })
       );
@@ -24298,9 +24298,9 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _SpellCard = __webpack_require__(22);
+var _CollapsableSpellCard = __webpack_require__(95);
 
-var _SpellCard2 = _interopRequireDefault(_SpellCard);
+var _CollapsableSpellCard2 = _interopRequireDefault(_CollapsableSpellCard);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24345,7 +24345,7 @@ var Favorites = function (_React$Component) {
                     return _react2.default.createElement(
                         'div',
                         null,
-                        _react2.default.createElement(_SpellCard2.default, { spell: spell, button: button })
+                        _react2.default.createElement(_CollapsableSpellCard2.default, { spell: spell, button: button })
                     );
                 }) : _react2.default.createElement(
                     'p',
@@ -31759,6 +31759,84 @@ var manageState = function manageState(SelectComponent) {
 
 
 
+
+/***/ }),
+/* 95 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _SpellCard = __webpack_require__(22);
+
+var _SpellCard2 = _interopRequireDefault(_SpellCard);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CollapsableSpellCard = function (_React$Component) {
+    _inherits(CollapsableSpellCard, _React$Component);
+
+    function CollapsableSpellCard() {
+        _classCallCheck(this, CollapsableSpellCard);
+
+        return _possibleConstructorReturn(this, (CollapsableSpellCard.__proto__ || Object.getPrototypeOf(CollapsableSpellCard)).apply(this, arguments));
+    }
+
+    _createClass(CollapsableSpellCard, [{
+        key: 'render',
+        value: function render() {
+            var spellName = this.props.spell.name;
+            var spellCollapseElement = spellName + 'collapse';
+
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    'div',
+                    { className: 'card' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'card-header', id: spellName },
+                        _react2.default.createElement(
+                            'h2',
+                            { className: 'mb-0' },
+                            _react2.default.createElement(
+                                'button',
+                                { className: 'btn btn-link', type: 'button', 'data-toggle': 'collapse', 'data-target': '#' + spellCollapseElement, 'aria-expanded': 'false', 'aria-controls': spellCollapseElement },
+                                this.props.spell.name
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { id: spellCollapseElement, className: 'collapse', 'aria-labelledby': spellName },
+                        _react2.default.createElement(_SpellCard2.default, { spell: this.props.spell, button: this.props.button })
+                    )
+                )
+            );
+        }
+    }]);
+
+    return CollapsableSpellCard;
+}(_react2.default.Component);
+
+exports.default = CollapsableSpellCard;
 
 /***/ })
 /******/ ]);
