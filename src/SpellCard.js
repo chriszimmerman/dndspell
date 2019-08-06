@@ -25,7 +25,11 @@ class SpellCard extends React.Component {
             <p>School: {spell.school}</p>
             <p>Classes: {spell.class}</p>
             <p>{spell.desc}</p>
-            <p>{spell.higher_level}</p>
+            {
+                spell.higher_level
+                    ? <div><h2>At higher levels</h2><p>{spell.higher_level}</p></div>
+                    : null
+            }
         </div>
         );
     }

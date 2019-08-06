@@ -14,11 +14,16 @@ class CollapsableSpellCard extends React.Component {
                             <button className="btn btn-link" type="button" data-toggle="collapse" data-target={`#${spellCollapseElement}`} aria-expanded="false" aria-controls={spellCollapseElement}>
                                {this.props.spell.name} 
                             </button>
+                            <div className="float-right">
+                            {
+                                this.props.button
+                            }
+                            </div>
                         </h2>
                     </div>
 
                     <div id={spellCollapseElement} className="collapse" aria-labelledby={spellName}>
-                        <SpellCard spell={this.props.spell} button={this.props.button}/>
+                        <SpellCard spell={this.props.spell} />
                     </div>
                 </div>
             </div>

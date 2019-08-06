@@ -36,7 +36,6 @@ class App extends React.Component {
   }
 
   onSpellChanged = (spell) => {
-    console.log(spell);
     this.setState({
       selectedSpellIndex: spell.value 
     });

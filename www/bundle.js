@@ -2830,11 +2830,20 @@ var SpellCard = function (_React$Component) {
                     null,
                     spell.desc
                 ),
-                _react2.default.createElement(
-                    "p",
+                spell.higher_level ? _react2.default.createElement(
+                    "div",
                     null,
-                    spell.higher_level
-                )
+                    _react2.default.createElement(
+                        "h2",
+                        null,
+                        "At higher levels"
+                    ),
+                    _react2.default.createElement(
+                        "p",
+                        null,
+                        spell.higher_level
+                    )
+                ) : null
             );
         }
     }]);
@@ -22416,7 +22425,6 @@ var App = function (_React$Component) {
         window.localStorage.setItem('spells', JSON.stringify(favorites));
       });
     }, _this.onSpellChanged = function (spell) {
-      console.log(spell);
       _this.setState({
         selectedSpellIndex: spell.value
       });
@@ -31820,13 +31828,18 @@ var CollapsableSpellCard = function (_React$Component) {
                                 'button',
                                 { className: 'btn btn-link', type: 'button', 'data-toggle': 'collapse', 'data-target': '#' + spellCollapseElement, 'aria-expanded': 'false', 'aria-controls': spellCollapseElement },
                                 this.props.spell.name
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'float-right' },
+                                this.props.button
                             )
                         )
                     ),
                     _react2.default.createElement(
                         'div',
                         { id: spellCollapseElement, className: 'collapse', 'aria-labelledby': spellName },
-                        _react2.default.createElement(_SpellCard2.default, { spell: this.props.spell, button: this.props.button })
+                        _react2.default.createElement(_SpellCard2.default, { spell: this.props.spell })
                     )
                 )
             );
