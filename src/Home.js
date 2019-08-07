@@ -9,30 +9,30 @@ class Home extends React.Component {
   }
 
   render() {
-      const selectedSpell = data[this.state.selectedSpellIndex];
-      const favorites = this.props.favorites;
-      const selectedSpellIsInFavorites = favorites.some((favorite) => {
-        return favorite.name === selectedSpell.name;
-      });
-      const options = data.map((spell, index) => {
-        return { value: index, label: spell.name };
-      });
-      const button = selectedSpellIsInFavorites
-        ? <button className="btn btn-warning" onClick={() => this.props.removeFromFavorites(selectedSpell)}>Unfavorite</button>
-        : <button className="btn btn-success" onClick={() => this.props.addToFavorites(selectedSpell, this.state.selectedSpellIndex)}>Favorite</button>;
+    const selectedSpell = data[this.state.selectedSpellIndex];
+    const favorites = this.props.favorites;
+    const selectedSpellIsInFavorites = favorites.some((favorite) => {
+      return favorite.name === selectedSpell.name;
+    });
+    const options = data.map((spell, index) => {
+      return { value: index, label: spell.name };
+    });
+    const button = selectedSpellIsInFavorites
+      ? <button className="btn btn-warning" onClick={() => this.props.removeFromFavorites(selectedSpell)}>Unfavorite</button>
+      : <button className="btn btn-success" onClick={() => this.props.addToFavorites(selectedSpell, this.state.selectedSpellIndex)}>Favorite</button>;
 
-      return (
-        <div className="container">
-          <Select 
-            value={this.state.selectedSpellIndex}
-            onChange={this.props.onSpellChanged}
-            options={options}
-            isSearchable={true}
-            placeholder="Type a spell here"
-          />
-          <SpellCard spell={selectedSpell} button={button}/>
-        </div>
-      );
+    return (
+      <div className="container">
+        <Select
+          value={this.state.selectedSpellIndex}
+          onChange={this.props.onSpellChanged}
+          options={options}
+          isSearchable={true}
+          placeholder="Type a spell here"
+        />
+        <SpellCard spell={selectedSpell} button={button} />
+      </div>
+    );
   }
 }
 

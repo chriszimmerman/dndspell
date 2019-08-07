@@ -37,7 +37,7 @@ class App extends React.Component {
 
   onSpellChanged = (spell) => {
     this.setState({
-      selectedSpellIndex: spell.value 
+      selectedSpellIndex: spell.value
     });
   };
 
@@ -55,23 +55,23 @@ class App extends React.Component {
           <Route path="/"
             exact
             component={
-              () => <Home 
-                      favorites={this.state.favorites}
-                      addToFavorites={this.addToFavorites}
-                      removeFromFavorites={this.removeFromFavorites} 
-                      selectedSpellIndex={this.state.selectedSpellIndex}
-                      onSpellChanged={this.onSpellChanged}
-                    />
+              () => <Home
+                favorites={this.state.favorites}
+                addToFavorites={this.addToFavorites}
+                removeFromFavorites={this.removeFromFavorites}
+                selectedSpellIndex={this.state.selectedSpellIndex}
+                onSpellChanged={this.onSpellChanged}
+              />
             }
           />
-          <Route 
-            path="/favorites/" 
+          <Route
+            path="/favorites/"
             component={
-              () => 
+              () =>
                 <Favorites
-                  favorites={this.state.favorites }
-                  removeFromFavorites={this.removeFromFavorites} 
-                /> 
+                  favorites={this.state.favorites}
+                  removeFromFavorites={this.removeFromFavorites}
+                />
             }
           />
         </div>

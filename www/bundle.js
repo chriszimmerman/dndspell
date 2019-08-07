@@ -2725,7 +2725,7 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -2743,112 +2743,112 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var SpellCard = function (_React$Component) {
-    _inherits(SpellCard, _React$Component);
+  _inherits(SpellCard, _React$Component);
 
-    function SpellCard() {
-        _classCallCheck(this, SpellCard);
+  function SpellCard() {
+    _classCallCheck(this, SpellCard);
 
-        return _possibleConstructorReturn(this, (SpellCard.__proto__ || Object.getPrototypeOf(SpellCard)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (SpellCard.__proto__ || Object.getPrototypeOf(SpellCard)).apply(this, arguments));
+  }
+
+  _createClass(SpellCard, [{
+    key: "render",
+    value: function render() {
+      var spell = this.props.spell;
+
+      return _react2.default.createElement(
+        "div",
+        { className: "container jumbotron", "data-toggle": "collapse" },
+        this.props.button,
+        _react2.default.createElement(
+          "h2",
+          null,
+          spell.name
+        ),
+        _react2.default.createElement(
+          "h3",
+          null,
+          spell.level,
+          " spell"
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "Components: ",
+          spell.components
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "Material: ",
+          spell.material
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "Ritual: ",
+          spell.ritual
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "Concentration: ",
+          spell.concentration
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "Range: ",
+          spell.range
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "Casting Time: ",
+          spell.casting_time
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "Duration: ",
+          spell.duration
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "School: ",
+          spell.school
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "Classes: ",
+          spell.class
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          spell.desc
+        ),
+        spell.higher_level ? _react2.default.createElement(
+          "div",
+          null,
+          _react2.default.createElement(
+            "h2",
+            null,
+            "At higher levels"
+          ),
+          _react2.default.createElement(
+            "p",
+            null,
+            spell.higher_level
+          )
+        ) : null
+      );
     }
+  }]);
 
-    _createClass(SpellCard, [{
-        key: "render",
-        value: function render() {
-            var spell = this.props.spell;
-
-            return _react2.default.createElement(
-                "div",
-                { className: "container jumbotron", "data-toggle": "collapse" },
-                this.props.button,
-                _react2.default.createElement(
-                    "h2",
-                    null,
-                    spell.name
-                ),
-                _react2.default.createElement(
-                    "h3",
-                    null,
-                    spell.level,
-                    " spell"
-                ),
-                _react2.default.createElement(
-                    "p",
-                    null,
-                    "Components: ",
-                    spell.components
-                ),
-                _react2.default.createElement(
-                    "p",
-                    null,
-                    "Material: ",
-                    spell.material
-                ),
-                _react2.default.createElement(
-                    "p",
-                    null,
-                    "Ritual: ",
-                    spell.ritual
-                ),
-                _react2.default.createElement(
-                    "p",
-                    null,
-                    "Concentration: ",
-                    spell.concentration
-                ),
-                _react2.default.createElement(
-                    "p",
-                    null,
-                    "Range: ",
-                    spell.range
-                ),
-                _react2.default.createElement(
-                    "p",
-                    null,
-                    "Casting Time: ",
-                    spell.casting_time
-                ),
-                _react2.default.createElement(
-                    "p",
-                    null,
-                    "Duration: ",
-                    spell.duration
-                ),
-                _react2.default.createElement(
-                    "p",
-                    null,
-                    "School: ",
-                    spell.school
-                ),
-                _react2.default.createElement(
-                    "p",
-                    null,
-                    "Classes: ",
-                    spell.class
-                ),
-                _react2.default.createElement(
-                    "p",
-                    null,
-                    spell.desc
-                ),
-                spell.higher_level ? _react2.default.createElement(
-                    "div",
-                    null,
-                    _react2.default.createElement(
-                        "h2",
-                        null,
-                        "At higher levels"
-                    ),
-                    _react2.default.createElement(
-                        "p",
-                        null,
-                        spell.higher_level
-                    )
-                ) : null
-            );
-        }
-    }]);
-
-    return SpellCard;
+  return SpellCard;
 }(_react2.default.Component);
 
 exports.default = SpellCard;
@@ -24297,7 +24297,7 @@ module.exports = [{"name":"Abi-Dalzim's Horrid Wilting","desc":"You draw the moi
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -24319,52 +24319,52 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Favorites = function (_React$Component) {
-    _inherits(Favorites, _React$Component);
+  _inherits(Favorites, _React$Component);
 
-    function Favorites() {
-        _classCallCheck(this, Favorites);
+  function Favorites() {
+    _classCallCheck(this, Favorites);
 
-        return _possibleConstructorReturn(this, (Favorites.__proto__ || Object.getPrototypeOf(Favorites)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (Favorites.__proto__ || Object.getPrototypeOf(Favorites)).apply(this, arguments));
+  }
+
+  _createClass(Favorites, [{
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var favorites = this.props.favorites;
+
+      return _react2.default.createElement(
+        'div',
+        { className: 'container' },
+        _react2.default.createElement(
+          'h1',
+          null,
+          'Favorites'
+        ),
+        favorites.length > 0 ? favorites.map(function (spell) {
+          var button = _react2.default.createElement(
+            'button',
+            { className: 'btn btn-warning', onClick: function onClick() {
+                return _this2.props.removeFromFavorites(spell);
+              } },
+            'Unfavorite'
+          );
+          return _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(_CollapsableSpellCard2.default, { spell: spell, button: button })
+          );
+        }) : _react2.default.createElement(
+          'p',
+          null,
+          'You have no favorites'
+        )
+      );
     }
+  }]);
 
-    _createClass(Favorites, [{
-        key: 'render',
-        value: function render() {
-            var _this2 = this;
-
-            var favorites = this.props.favorites;
-
-            return _react2.default.createElement(
-                'div',
-                { className: 'container' },
-                _react2.default.createElement(
-                    'h1',
-                    null,
-                    'Favorites'
-                ),
-                favorites.length > 0 ? favorites.map(function (spell) {
-                    var button = _react2.default.createElement(
-                        'button',
-                        { className: 'btn btn-warning', onClick: function onClick() {
-                                return _this2.props.removeFromFavorites(spell);
-                            } },
-                        'Unfavorite'
-                    );
-                    return _react2.default.createElement(
-                        'div',
-                        null,
-                        _react2.default.createElement(_CollapsableSpellCard2.default, { spell: spell, button: button })
-                    );
-                }) : _react2.default.createElement(
-                    'p',
-                    null,
-                    'You have no favorites'
-                )
-            );
-        }
-    }]);
-
-    return Favorites;
+  return Favorites;
 }(_react2.default.Component);
 
 exports.default = Favorites;
@@ -31776,7 +31776,7 @@ var manageState = function manageState(SelectComponent) {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -31798,55 +31798,55 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var CollapsableSpellCard = function (_React$Component) {
-    _inherits(CollapsableSpellCard, _React$Component);
+  _inherits(CollapsableSpellCard, _React$Component);
 
-    function CollapsableSpellCard() {
-        _classCallCheck(this, CollapsableSpellCard);
+  function CollapsableSpellCard() {
+    _classCallCheck(this, CollapsableSpellCard);
 
-        return _possibleConstructorReturn(this, (CollapsableSpellCard.__proto__ || Object.getPrototypeOf(CollapsableSpellCard)).apply(this, arguments));
-    }
+    return _possibleConstructorReturn(this, (CollapsableSpellCard.__proto__ || Object.getPrototypeOf(CollapsableSpellCard)).apply(this, arguments));
+  }
 
-    _createClass(CollapsableSpellCard, [{
-        key: 'render',
-        value: function render() {
-            var spellName = this.props.spell.name;
-            var spellCollapseElement = spellName + 'collapse';
+  _createClass(CollapsableSpellCard, [{
+    key: 'render',
+    value: function render() {
+      var spellName = this.props.spell.name;
+      var spellCollapseElement = spellName + 'collapse';
 
-            return _react2.default.createElement(
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'div',
+          { className: 'card' },
+          _react2.default.createElement(
+            'div',
+            { className: 'card-header', id: spellName },
+            _react2.default.createElement(
+              'h2',
+              { className: 'mb-0' },
+              _react2.default.createElement(
+                'button',
+                { className: 'btn btn-link', type: 'button', 'data-toggle': 'collapse', 'data-target': '#' + spellCollapseElement, 'aria-expanded': 'false', 'aria-controls': spellCollapseElement },
+                this.props.spell.name
+              ),
+              _react2.default.createElement(
                 'div',
-                null,
-                _react2.default.createElement(
-                    'div',
-                    { className: 'card' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'card-header', id: spellName },
-                        _react2.default.createElement(
-                            'h2',
-                            { className: 'mb-0' },
-                            _react2.default.createElement(
-                                'button',
-                                { className: 'btn btn-link', type: 'button', 'data-toggle': 'collapse', 'data-target': '#' + spellCollapseElement, 'aria-expanded': 'false', 'aria-controls': spellCollapseElement },
-                                this.props.spell.name
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'float-right' },
-                                this.props.button
-                            )
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { id: spellCollapseElement, className: 'collapse', 'aria-labelledby': spellName },
-                        _react2.default.createElement(_SpellCard2.default, { spell: this.props.spell })
-                    )
-                )
-            );
-        }
-    }]);
+                { className: 'float-right' },
+                this.props.button
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { id: spellCollapseElement, className: 'collapse', 'aria-labelledby': spellName },
+            _react2.default.createElement(_SpellCard2.default, { spell: this.props.spell })
+          )
+        )
+      );
+    }
+  }]);
 
-    return CollapsableSpellCard;
+  return CollapsableSpellCard;
 }(_react2.default.Component);
 
 exports.default = CollapsableSpellCard;
