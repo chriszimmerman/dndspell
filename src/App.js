@@ -14,6 +14,7 @@ class App extends React.Component {
     newFavorites.sort((a, b) => {
       return a.name.localeCompare(b.name);
     });
+
     this.setState({
       favorites: newFavorites,
       selectedSpellIndex
@@ -28,11 +29,13 @@ class App extends React.Component {
       return spell.name === spellToRemove.name;
     });
     favorites.splice(indexOfSpellToRemove, 1);
-    this.setState({
-      favorites
-    }, () => {
-      window.localStorage.setItem('spells', JSON.stringify(favorites));
-    });
+
+    this.setState(
+      {
+        favorites
+      },
+      () => { window.localStorage.setItem('spells', JSON.stringify(favorites)); }
+    );
   }
 
   onSpellChanged = (spell) => {
@@ -55,7 +58,8 @@ class App extends React.Component {
           <Route path="/"
             exact
             component={
-              () => <Home
+              () => 
+              <Home
                 favorites={this.state.favorites}
                 addToFavorites={this.addToFavorites}
                 removeFromFavorites={this.removeFromFavorites}

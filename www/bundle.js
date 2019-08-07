@@ -22407,6 +22407,7 @@ var App = function (_React$Component) {
       newFavorites.sort(function (a, b) {
         return a.name.localeCompare(b.name);
       });
+
       _this.setState({
         favorites: newFavorites,
         selectedSpellIndex: selectedSpellIndex
@@ -22419,6 +22420,7 @@ var App = function (_React$Component) {
         return spell.name === spellToRemove.name;
       });
       favorites.splice(indexOfSpellToRemove, 1);
+
       _this.setState({
         favorites: favorites
       }, function () {
@@ -24342,7 +24344,7 @@ var Favorites = function (_React$Component) {
           null,
           'Favorites'
         ),
-        favorites.length > 0 ? favorites.map(function (spell) {
+        favorites.length > 0 ? favorites.map(function (spell, index) {
           var button = _react2.default.createElement(
             'button',
             { className: 'btn btn-warning', onClick: function onClick() {
@@ -24352,7 +24354,7 @@ var Favorites = function (_React$Component) {
           );
           return _react2.default.createElement(
             'div',
-            null,
+            { key: index },
             _react2.default.createElement(_CollapsableSpellCard2.default, { spell: spell, button: button })
           );
         }) : _react2.default.createElement(
