@@ -2745,10 +2745,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var SpellCard = function (_React$Component) {
     _inherits(SpellCard, _React$Component);
 
-    function SpellCard(props) {
+    function SpellCard() {
         _classCallCheck(this, SpellCard);
 
-        return _possibleConstructorReturn(this, (SpellCard.__proto__ || Object.getPrototypeOf(SpellCard)).call(this, props));
+        return _possibleConstructorReturn(this, (SpellCard.__proto__ || Object.getPrototypeOf(SpellCard)).apply(this, arguments));
     }
 
     _createClass(SpellCard, [{

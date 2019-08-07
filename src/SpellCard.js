@@ -1,10 +1,6 @@
 import React from 'react';
 
 class SpellCard extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const spell = this.props.spell;
 
