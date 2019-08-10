@@ -8,20 +8,32 @@ class CollapsableSpellCard extends React.Component {
 
     return (
       <div className="card">
-        <div className="card-header" id={spellName}>
+        <div 
+          className="card-header"
+          id={spellName}
+        >
           <h2 className="mb-0">
-            <button className="btn btn-link" type="button" data-toggle="collapse" data-target={`#${spellCollapseElement}`} aria-expanded="false" aria-controls={spellCollapseElement}>
+            <button 
+              className="btn btn-link" 
+              type="button" 
+              data-toggle="collapse" 
+              data-target={`#${spellCollapseElement}`} 
+              aria-expanded="false" 
+              aria-controls={spellCollapseElement}
+            >
               {this.props.spell.name}
             </button>
             <div className="float-right">
-              {
-                this.props.button
-              }
+              {this.props.button}
             </div>
           </h2>
         </div>
 
-        <div id={spellCollapseElement} className="collapse" aria-labelledby={spellName}>
+        <div 
+          id={spellCollapseElement} 
+          className="collapse" 
+          aria-labelledby={spellName}
+        >
           <SpellCard spell={this.props.spell} />
         </div>
       </div>

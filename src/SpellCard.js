@@ -5,7 +5,7 @@ class SpellCard extends React.Component {
     const spell = this.props.spell;
 
     return (
-      <div className="jumbotron" data-toggle="collapse">
+      <div className="jumbotron">
         {
           this.props.button
         }
@@ -23,7 +23,10 @@ class SpellCard extends React.Component {
         <p>{spell.desc}</p>
         {
           spell.higher_level
-            ? <div><h2>At higher levels</h2><p>{spell.higher_level}</p></div>
+            ? <div>
+                <h2>At higher levels</h2>
+                <p>{spell.higher_level}</p>
+              </div>
             : null
         }
       </div>

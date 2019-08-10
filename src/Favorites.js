@@ -12,7 +12,13 @@ class Favorites extends React.Component {
           favorites.length > 0
             ?
             favorites.map((spell, index) => {
-              const button = <button className="btn btn-warning" onClick={() => this.props.removeFromFavorites(spell)}>Unfavorite</button>;
+              const button = 
+              <button 
+                className="btn btn-warning"
+                onClick={() => this.props.removeFromFavorites(spell)}
+              >
+                Unfavorite
+              </button>;
               return (
                 <div key={index}>
                   <CollapsableSpellCard spell={spell} button={button} />

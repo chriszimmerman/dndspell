@@ -3678,7 +3678,7 @@ var SpellCard = function (_React$Component) {
 
       return _react2.default.createElement(
         "div",
-        { className: "jumbotron", "data-toggle": "collapse" },
+        { className: "jumbotron" },
         this.props.button,
         _react2.default.createElement(
           "h2",
@@ -31752,9 +31752,12 @@ var Favorites = function (_React$Component) {
         favorites.length > 0 ? favorites.map(function (spell, index) {
           var button = _react2.default.createElement(
             'button',
-            { className: 'btn btn-warning', onClick: function onClick() {
+            {
+              className: 'btn btn-warning',
+              onClick: function onClick() {
                 return _this2.props.removeFromFavorites(spell);
-              } },
+              }
+            },
             'Unfavorite'
           );
           return _react2.default.createElement(
@@ -31825,13 +31828,23 @@ var CollapsableSpellCard = function (_React$Component) {
         { className: 'card' },
         _react2.default.createElement(
           'div',
-          { className: 'card-header', id: spellName },
+          {
+            className: 'card-header',
+            id: spellName
+          },
           _react2.default.createElement(
             'h2',
             { className: 'mb-0' },
             _react2.default.createElement(
               'button',
-              { className: 'btn btn-link', type: 'button', 'data-toggle': 'collapse', 'data-target': '#' + spellCollapseElement, 'aria-expanded': 'false', 'aria-controls': spellCollapseElement },
+              {
+                className: 'btn btn-link',
+                type: 'button',
+                'data-toggle': 'collapse',
+                'data-target': '#' + spellCollapseElement,
+                'aria-expanded': 'false',
+                'aria-controls': spellCollapseElement
+              },
               this.props.spell.name
             ),
             _react2.default.createElement(
@@ -31843,7 +31856,11 @@ var CollapsableSpellCard = function (_React$Component) {
         ),
         _react2.default.createElement(
           'div',
-          { id: spellCollapseElement, className: 'collapse', 'aria-labelledby': spellName },
+          {
+            id: spellCollapseElement,
+            className: 'collapse',
+            'aria-labelledby': spellName
+          },
           _react2.default.createElement(_SpellCard2.default, { spell: this.props.spell })
         )
       );
