@@ -50,11 +50,11 @@ class App extends React.Component {
         <div className="container-fluid">
           <nav className="navbar navbar-fixec-top navbar-expand navbar-dark bg-dark">
             <div className="navbar-collapse">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
+              <ul className="navbar-nav mr-auto">
+                <li className="nav-item">
                   <NavLink className="nav-link" to="/">Home</NavLink>
                 </li>
-                <li class="nav-item">
+                <li className="nav-item">
                   <NavLink className="nav-link" to="/favorites/">Favorites</NavLink>
                 </li>
               </ul>

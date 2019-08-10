@@ -28705,10 +28705,10 @@ var App = function (_React$Component) {
               { className: 'navbar-collapse' },
               _react2.default.createElement(
                 'ul',
-                { 'class': 'navbar-nav mr-auto' },
+                { className: 'navbar-nav mr-auto' },
                 _react2.default.createElement(
                   'li',
-                  { 'class': 'nav-item' },
+                  { className: 'nav-item' },
                   _react2.default.createElement(
                     _reactRouterDom.NavLink,
                     { className: 'nav-link', to: '/' },
@@ -28717,7 +28717,7 @@ var App = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                   'li',
-                  { 'class': 'nav-item' },
+                  { className: 'nav-item' },
                   _react2.default.createElement(
                     _reactRouterDom.NavLink,
                     { className: 'nav-link', to: '/favorites/' },
@@ -31822,33 +31822,29 @@ var CollapsableSpellCard = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'card' },
         _react2.default.createElement(
           'div',
-          { className: 'card' },
+          { className: 'card-header', id: spellName },
           _react2.default.createElement(
-            'div',
-            { className: 'card-header', id: spellName },
+            'h2',
+            { className: 'mb-0' },
             _react2.default.createElement(
-              'h2',
-              { className: 'mb-0' },
-              _react2.default.createElement(
-                'button',
-                { className: 'btn btn-link', type: 'button', 'data-toggle': 'collapse', 'data-target': '#' + spellCollapseElement, 'aria-expanded': 'false', 'aria-controls': spellCollapseElement },
-                this.props.spell.name
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'float-right' },
-                this.props.button
-              )
+              'button',
+              { className: 'btn btn-link', type: 'button', 'data-toggle': 'collapse', 'data-target': '#' + spellCollapseElement, 'aria-expanded': 'false', 'aria-controls': spellCollapseElement },
+              this.props.spell.name
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'float-right' },
+              this.props.button
             )
-          ),
-          _react2.default.createElement(
-            'div',
-            { id: spellCollapseElement, className: 'collapse', 'aria-labelledby': spellName },
-            _react2.default.createElement(_SpellCard2.default, { spell: this.props.spell })
           )
+        ),
+        _react2.default.createElement(
+          'div',
+          { id: spellCollapseElement, className: 'collapse', 'aria-labelledby': spellName },
+          _react2.default.createElement(_SpellCard2.default, { spell: this.props.spell })
         )
       );
     }
