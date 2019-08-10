@@ -1,11 +1,9 @@
 import React from 'react';
 import App from '../App';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { shallow, mount, render } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
 
-it('renders a header that says "Hello World!"', () => {
-    const title = "Hello World!";
+it('renders a React Router', () => {
     const wrapper = shallow(<App />);
-    expect(wrapper.find('h1').length).toBe(1);
-    expect(wrapper.find('h1').text()).toBe(title);
+    expect(wrapper.find(Router).length).toBe(1);
 });
