@@ -3678,7 +3678,7 @@ var SpellCard = function (_React$Component) {
 
       return _react2.default.createElement(
         "div",
-        { className: "container jumbotron", "data-toggle": "collapse" },
+        { className: "jumbotron", "data-toggle": "collapse" },
         this.props.button,
         _react2.default.createElement(
           "h2",
@@ -28696,22 +28696,34 @@ var App = function (_React$Component) {
         null,
         _react2.default.createElement(
           'div',
-          null,
+          { className: 'container-fluid' },
           _react2.default.createElement(
             'nav',
-            { className: 'navbar navbar-dark bg-dark' },
+            { className: 'navbar navbar-fixec-top navbar-expand navbar-dark bg-dark' },
             _react2.default.createElement(
               'div',
-              { className: 'container' },
+              { className: 'navbar-collapse' },
               _react2.default.createElement(
-                _reactRouterDom.NavLink,
-                { className: 'nav-brand', to: '/' },
-                'Home'
-              ),
-              _react2.default.createElement(
-                _reactRouterDom.NavLink,
-                { className: 'nav-brand', to: '/favorites/' },
-                'Favorites'
+                'ul',
+                { 'class': 'navbar-nav mr-auto' },
+                _react2.default.createElement(
+                  'li',
+                  { 'class': 'nav-item' },
+                  _react2.default.createElement(
+                    _reactRouterDom.NavLink,
+                    { className: 'nav-link', to: '/' },
+                    'Home'
+                  )
+                ),
+                _react2.default.createElement(
+                  'li',
+                  { 'class': 'nav-item' },
+                  _react2.default.createElement(
+                    _reactRouterDom.NavLink,
+                    { className: 'nav-link', to: '/favorites/' },
+                    'Favorites'
+                  )
+                )
               )
             )
           ),
@@ -30481,7 +30493,7 @@ var Home = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: 'container' },
+        null,
         _react2.default.createElement(_reactSelect2.default, {
           value: this.state.selectedSpellIndex,
           onChange: this.props.onSpellChanged,
@@ -31731,7 +31743,7 @@ var Favorites = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: 'container' },
+        null,
         _react2.default.createElement(
           'h1',
           null,

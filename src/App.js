@@ -47,11 +47,17 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <div>
-          <nav className="navbar navbar-dark bg-dark">
-            <div className="container">
-              <NavLink className="nav-brand" to="/">Home</NavLink>
-              <NavLink className="nav-brand" to="/favorites/">Favorites</NavLink>
+        <div className="container-fluid">
+          <nav className="navbar navbar-fixec-top navbar-expand navbar-dark bg-dark">
+            <div className="navbar-collapse">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <NavLink className="nav-link" to="/">Home</NavLink>
+                </li>
+                <li class="nav-item">
+                  <NavLink className="nav-link" to="/favorites/">Favorites</NavLink>
+                </li>
+              </ul>
             </div>
           </nav>
 

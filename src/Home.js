@@ -22,7 +22,7 @@ class Home extends React.Component {
       : <button className="btn btn-success" onClick={() => this.props.addToFavorites(selectedSpell, this.state.selectedSpellIndex)}>Favorite</button>;
 
     return (
-      <div className="container">
+      <div>
         <Select
           value={this.state.selectedSpellIndex}
           onChange={this.props.onSpellChanged}

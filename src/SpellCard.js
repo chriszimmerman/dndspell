@@ -5,7 +5,7 @@ class SpellCard extends React.Component {
     const spell = this.props.spell;
 
     return (
-      <div className="container jumbotron" data-toggle="collapse">
+      <div className="jumbotron" data-toggle="collapse">
         {
           this.props.button
         }

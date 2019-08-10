@@ -6,7 +6,7 @@ class Favorites extends React.Component {
     const favorites = this.props.favorites;
 
     return (
-      <div className="container">
+      <div>
         <h1>Favorites</h1>
         {
           favorites.length > 0
