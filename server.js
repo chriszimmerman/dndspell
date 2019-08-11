@@ -11,12 +11,14 @@ app.use(express.static(__dirname + '/www'));
 app.use(webpackDevMiddleware(compiler, {
   hot: true,
   filename: 'bundle.js',
-  publicPath: '/',
   stats: {
     colors: true,
   },
-  historyApiFallback: true,
 }));
+
+app.get('/favorites', function(req, res) {
+  res.redirect('/');
+});
  
 const server = app.listen(process.env.PORT || 3000, function() {
   const host = server.address().address;
