@@ -1,6 +1,23 @@
 import React from 'react';
 import SpellCard from '../SpellCard';
-import { shallow, mount, render } from 'enzyme';
+import { shallow } from 'enzyme';
+
+it('renders a button if passed as a prop', () => {
+    const spell = {};
+    const button = <div data-test-id="testButton"></div>;
+
+    const wrapper = shallow(<SpellCard spell={spell} button={button} />);
+
+    expect(wrapper.find('[data-test-id="testButton"]')).toHaveLength(1);
+});
+
+it('does not render a button if not passed as a prop', () => {
+    const spell = {};
+
+    const wrapper = shallow(<SpellCard spell={spell}/>);
+
+    expect(wrapper.find('[data-test-id="testButton"]')).toHaveLength(0);
+});
 
 it('renders an h2 with the spell name', () => {
     const expected = "Magic Missile";
@@ -142,4 +159,31 @@ it('renders an paragraph with the spell classes', () => {
 
     expect(wrapper.find('[data-test-id="class"]')).toHaveLength(1);
     expect(wrapper.find('[data-test-id="class"]').text()).toBe(expected);
+});
+
+it('renders an paragraph with the spell description', () => {
+    const expected = "This spell makes everybody dance.";
+    const spell = {
+      desc: expected
+    };
+
+    const wrapper = shallow(<SpellCard spell={spell} />);
+
+    expect(wrapper.find('[data-test-id="description"]')).toHaveLength(1);
+    expect(wrapper.find('[data-test-id="description"]').text()).toBe(expected);
+});
+
+it('renders a description of what the spell does at higher levels when specified', () => {
+  const expected = "You can create one extra fireball every 3 levels";
+  const spell = {
+    higher_level: expected
+  };
+
+  const wrapper = shallow(<SpellCard spell={spell} />);
+
+  expect(wrapper.find('[data-test-id="atHigherLevels"]')).toHaveLength(1);
+  expect(wrapper.find('[data-test-id="atHigherLevels"]').text()).toBe("At higher levels");
+
+  expect(wrapper.find('[data-test-id="atHigherLevelsDescription"]')).toHaveLength(1);
+  expect(wrapper.find('[data-test-id="atHigherLevelsDescription"]').text()).toBe(expected);
 });

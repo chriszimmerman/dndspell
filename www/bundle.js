@@ -3747,7 +3747,7 @@ var SpellCard = function (_React$Component) {
         ),
         _react2.default.createElement(
           "p",
-          null,
+          { "data-test-id": "description" },
           spell.desc
         ),
         spell.higher_level ? _react2.default.createElement(
@@ -3755,12 +3755,12 @@ var SpellCard = function (_React$Component) {
           null,
           _react2.default.createElement(
             "h2",
-            null,
+            { "data-test-id": "atHigherLevels" },
             "At higher levels"
           ),
           _react2.default.createElement(
             "p",
-            null,
+            { "data-test-id": "atHigherLevelsDescription" },
             spell.higher_level
           )
         ) : null
