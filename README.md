@@ -1,7 +1,6 @@
-# react-seed
+# 5th Edition D&D Spell Tool
 
-This repo contains the boilerplate code needed to get a node project using [React](https://reactjs.org/), [Webpack](https://webpack.js.org/),
-and [Bootstrap](https://getbootstrap.com/). Code is added to help deploying to [Heroku](https://priceperounce.herokuapp.com/) easier.
+This is a mobile-first app that lets you quickly look up spells for reference when playing Dunegons and Dragons. This app is currently deployed [here](https://spells5thed.herokuapp.com/).
 
 # How to run locally
 
