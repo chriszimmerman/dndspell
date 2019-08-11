@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "compile": "webpack",
+    "compile": "webpack -p --watch",
     "heroku-prebuild": "yarn install --dev",
     "heroku-postbuild": "webpack -p",
     "test": "jest --watchAll"
@@ -14,7 +14,8 @@
   "author": "Chris Zimmerman",
   "license": "ISC",
   "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>src/test/setupTests.js"
+    "setupTestFrameworkScriptFile": "<rootDir>src/test/setupTests.js",
+    "testURL": "http://localhost/"
   },
   "dependencies": {
     "babel-core": "^6.26.0",
