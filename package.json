@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "compile": "webpack",
+    "heroku-prebuild": "yarn install --dev",
     "heroku-postbuild": "webpack -p",
     "test": "jest --watchAll"
   },
