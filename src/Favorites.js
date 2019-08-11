@@ -19,6 +19,7 @@ class Favorites extends React.Component {
               >
                 Unfavorite
               </button>;
+
               return (
                 <div key={index}>
                   <CollapsableSpellCard spell={spell} button={button} />

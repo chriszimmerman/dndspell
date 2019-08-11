@@ -9,17 +9,17 @@ class SpellCard extends React.Component {
         {
           this.props.button
         }
-        <h2>{spell.name}</h2>
-        <h3>{spell.level} spell</h3>
-        <p>Components: {spell.components}</p>
-        <p>Material: {spell.material}</p>
-        <p>Ritual: {spell.ritual}</p>
-        <p>Concentration: {spell.concentration}</p>
-        <p>Range: {spell.range}</p>
-        <p>Casting Time: {spell.casting_time}</p>
-        <p>Duration: {spell.duration}</p>
-        <p>School: {spell.school}</p>
-        <p>Classes: {spell.class}</p>
+        <h2 data-test-id="name">{spell.name}</h2>
+        <h3 data-test-id="level">{spell.level} spell</h3>
+        <p data-test-id="components">Components: {spell.components}</p>
+        <p data-test-id="material">Material: {spell.material}</p>
+        <p data-test-id="ritual">Ritual: {spell.ritual}</p>
+        <p data-test-id="concentration">Concentration: {spell.concentration}</p>
+        <p data-test-id="range">Range: {spell.range}</p>
+        <p data-test-id="castingTime">Casting Time: {spell.casting_time}</p>
+        <p data-test-id="duration">Duration: {spell.duration}</p>
+        <p data-test-id="school">School: {spell.school}</p>
+        <p data-test-id="class">Classes: {spell.class}</p>
         <p>{spell.desc}</p>
         {
           spell.higher_level

@@ -3682,66 +3682,66 @@ var SpellCard = function (_React$Component) {
         this.props.button,
         _react2.default.createElement(
           "h2",
-          null,
+          { "data-test-id": "name" },
           spell.name
         ),
         _react2.default.createElement(
           "h3",
-          null,
+          { "data-test-id": "level" },
           spell.level,
           " spell"
         ),
         _react2.default.createElement(
           "p",
-          null,
+          { "data-test-id": "components" },
           "Components: ",
           spell.components
         ),
         _react2.default.createElement(
           "p",
-          null,
+          { "data-test-id": "material" },
           "Material: ",
           spell.material
         ),
         _react2.default.createElement(
           "p",
-          null,
+          { "data-test-id": "ritual" },
           "Ritual: ",
           spell.ritual
         ),
         _react2.default.createElement(
           "p",
-          null,
+          { "data-test-id": "concentration" },
           "Concentration: ",
           spell.concentration
         ),
         _react2.default.createElement(
           "p",
-          null,
+          { "data-test-id": "range" },
           "Range: ",
           spell.range
         ),
         _react2.default.createElement(
           "p",
-          null,
+          { "data-test-id": "castingTime" },
           "Casting Time: ",
           spell.casting_time
         ),
         _react2.default.createElement(
           "p",
-          null,
+          { "data-test-id": "duration" },
           "Duration: ",
           spell.duration
         ),
         _react2.default.createElement(
           "p",
-          null,
+          { "data-test-id": "school" },
           "School: ",
           spell.school
         ),
         _react2.default.createElement(
           "p",
-          null,
+          { "data-test-id": "class" },
           "Classes: ",
           spell.class
         ),
@@ -31760,6 +31760,7 @@ var Favorites = function (_React$Component) {
             },
             'Unfavorite'
           );
+
           return _react2.default.createElement(
             'div',
             { key: index },
