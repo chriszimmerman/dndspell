@@ -31823,6 +31823,7 @@ var CollapsableSpellCard = function (_React$Component) {
     value: function render() {
       var spellName = this.props.spell.name;
       var spellCollapseElement = spellName + 'collapse';
+      var dataTargetIdForCollapseElement = '#' + spellCollapseElement;
 
       return _react2.default.createElement(
         'div',
@@ -31840,9 +31841,8 @@ var CollapsableSpellCard = function (_React$Component) {
               'button',
               {
                 className: 'btn btn-link',
-                type: 'button',
                 'data-toggle': 'collapse',
-                'data-target': '#' + spellCollapseElement,
+                'data-target': dataTargetIdForCollapseElement,
                 'aria-expanded': 'false',
                 'aria-controls': spellCollapseElement
               },

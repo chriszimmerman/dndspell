@@ -5,6 +5,7 @@ class CollapsableSpellCard extends React.Component {
   render() {
     const spellName = this.props.spell.name;
     const spellCollapseElement = `${spellName}collapse`;
+    const dataTargetIdForCollapseElement = `#${spellCollapseElement}`;
 
     return (
       <div className="card">
@@ -15,9 +16,8 @@ class CollapsableSpellCard extends React.Component {
           <h2 className="mb-0">
             <button 
               className="btn btn-link" 
-              type="button" 
               data-toggle="collapse" 
-              data-target={`#${spellCollapseElement}`} 
+              data-target={dataTargetIdForCollapseElement} 
               aria-expanded="false" 
               aria-controls={spellCollapseElement}
             >
