@@ -1,7 +1,7 @@
 import React from 'react';
 import SpellCard from './SpellCard';
 import Select from 'react-select';
-import data from '../data/spells.json';
+import SpellData from './SpellData';
 
 class Home extends React.Component {
   state = {
@@ -9,6 +9,7 @@ class Home extends React.Component {
   }
 
   render() {
+    const data = SpellData.getSpellData();
     const selectedSpell = data[this.state.selectedSpellIndex];
     const favorites = this.props.favorites;
     const selectedSpellIsInFavorites = favorites.some((favorite) => {
