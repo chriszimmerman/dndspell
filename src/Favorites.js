@@ -13,12 +13,12 @@ class Favorites extends React.Component {
             ?
             favorites.map((spell, index) => {
               const button = 
-              <button 
-                className="btn btn-warning"
-                onClick={() => this.props.removeFromFavorites(spell)}
-              >
-                Unfavorite
-              </button>;
+                <button 
+                  className="btn btn-warning"
+                  onClick={() => this.props.removeFromFavorites(spell)}
+                >
+                  Unfavorite
+                </button>;
 
               return (
                 <div key={index}>

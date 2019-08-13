@@ -1,7 +1,7 @@
 import React from 'react';
 import CollapsableSpellCard from '../CollapsableSpellCard';
 import SpellCard from '../SpellCard';
-import { shallow, render, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 it('renders a button that toggles collapsing of a favorite spell card', () => {
     const spell = {
