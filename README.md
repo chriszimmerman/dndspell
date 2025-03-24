@@ -1,6 +1,6 @@
 # 5th Edition D&D Spell Tool
 
-This is a mobile-first app that lets you quickly look up spells for reference when playing Dunegons and Dragons. This app is currently deployed [here](https://spells5thed.herokuapp.com/).
+This is a mobile-first app that lets you quickly look up spells for reference when playing Dunegons and Dragons. This app is currently deployed [here](https://dndspell.onrender.com/).
 
 # How to run locally
 
